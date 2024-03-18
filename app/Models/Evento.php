@@ -17,4 +17,9 @@ class Eventos extends Model
     public function categoria(){
         return $this->belongsTo('App\Models\Categoria');
     }
+
+    //relacion uno a uno polimorfica
+    public function image(){
+        return $this->morphOne('App\Models\Image', 'imageable');
+    }
 }
