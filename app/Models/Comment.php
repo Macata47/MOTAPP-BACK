@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     use HasFactory;
+
+    //Relacion uno a muchos inversa
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
+
+    //Relacion Polimorfica
+    public function commentable(){
+        return   $this->morphTo();
+    }
+
+
+
 }
