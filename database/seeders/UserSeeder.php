@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use Spatie\Permission\Models\Permission;
 
 class UserSeeder extends Seeder
 {
@@ -14,8 +15,13 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        // Ejemplo de creación de algunos usuarios
-        User::factory()->count(10)->create();
+        User::create([
+            'name' => "Marta Parra",
+            'email'=>"martaparra@gmail.com",
+            'password'=>bcrypt('12345678'),
+        ])->assignRole('Admin');
+        
+        // User::factory()->count(10)->create();
     }
 }
 
